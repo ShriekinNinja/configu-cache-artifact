@@ -6,9 +6,6 @@ stores:
     configuration:
       database: dev.sqlite
 
-schemas:
-  cache: cache.cfgu.json
-
 scripts:
-  upsert: configu upsert --store sqlite --set '' --schema cache --config A1=222 --config A2=222
-  eval: configu eval --store sqlite --set '' --schema cache | configu export --explain
+  upsert: configu upsert --store sqlite --set '' --schema cache.cfgu.json --config A1=222 --config A2=222
+  eval: configu eval --store sqlite --set '' --schema cache.cfgu.json | configu export --explain
