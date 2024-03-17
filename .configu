@@ -1,11 +1,11 @@
 cache: cache.db
 stores:
-  sqlite:
+  my_store:
     type: sqlite
     cache: true
     configuration:
       database: dev.db
 
 scripts:
-  upsert: configu upsert --store sqlite --set '' --schema cache.cfgu.json --config A1=222 --config A2=222
-  eval: configu eval --store sqlite --set '' --schema cache.cfgu.json | configu export --explain
+  upsert: configu upsert --store my_store --set '' --schema cache.cfgu.json --config A1=222 --config A2=222
+  eval: configu eval --store my_store --set '' --schema cache.cfgu.json | configu export --explain
