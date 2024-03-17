@@ -1,0 +1,14 @@
+cache: cache.sqlite
+stores:
+  sqlite:
+    type: sqlite
+    cache: true
+    configuration:
+      database: dev.sqlite
+
+schemas:
+  cache: cache.cfgu.json
+
+scripts:
+  upsert: configu upsert --store sqlite --set '' --schema cache --config A1=222 --config A2=222
+  eval: configu eval --store sqlite --set '' --schema cache | configu export --explain

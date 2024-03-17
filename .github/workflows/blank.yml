@@ -30,7 +30,13 @@ jobs:
         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Install configu CLI and update to a specific version
         run: |
           curl https://cli.configu.com/install.sh | sh
-          configu --version
+          configu update --version 0.16.0-next.8
+
+      - name: upsert and eval
+        run: |
+          configu run --script upsert
+          configu run --script eval
+

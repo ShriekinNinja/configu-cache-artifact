@@ -1,0 +1,18 @@
+{
+  "A0": {
+    "type": "String",
+    "default": "A0"
+  },
+  "A1": {
+    "type": "String",
+    "default": "A1"
+  },
+  "A2": {
+    "type": "String",
+    "default": "A2"
+  },
+  "A3": {
+    "type": "String",
+    "template": "{{A1}}, {{A2}}!"
+  }
+}
