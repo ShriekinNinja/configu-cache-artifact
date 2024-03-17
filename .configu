@@ -1,4 +1,4 @@
-cache: cache.db
+cache: ~/cache.db
 stores:
   my_store:
     type: sqlite
