@@ -16,20 +16,15 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  setup:
     # The type of runner that the job will run on
+    name: Install configu CLI upsert, eval and upload cache
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
       - name: Install configu CLI and update to a specific version
         run: |
           curl https://cli.configu.com/install.sh | sh
@@ -40,5 +35,29 @@ jobs:
 
       - name: eval
         run: configu run --script eval
+
+      - name: Upload cache
+        uses: actions/upload-artifact@v4
+        with:
+          name: store-cache
+          path: cache.db
+
+  eval:
+    name: Evaluate cache
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download cache
+        uses: actions/download-artifact@v4
+        with:
+          name: store-cache
+          path: cache.db
+      - name: upsert
+        run: configu run --script upsert2
+
+      - name: eval
+        run: configu run --script eval2
 
 

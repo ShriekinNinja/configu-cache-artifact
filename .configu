@@ -8,4 +8,6 @@ stores:
 
 scripts:
   upsert: configu upsert --store my_store --set '' --schema cache.cfgu.json --config A1=222 --config A2=222
+  upsert2: configu upsert --store my_store --set '' --schema cache.cfgu.json --config A1=1 --config A2=1
   eval: configu eval --store my_store --set '' --schema cache.cfgu.json | configu export --explain
+  eval2: configu eval --store my_store --set '' --schema cache.cfgu.json --force-cache | configu export --explain
