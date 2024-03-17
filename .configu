@@ -1,8 +1,7 @@
-cache: ~/cache.db
 stores:
   my_store:
     type: sqlite
-    cache: true
+    cache: cache.db
     configuration:
       database: dev.db
 

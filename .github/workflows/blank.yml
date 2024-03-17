@@ -40,7 +40,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: store_cache
-          path: ~/cache.db
+          path: cache.db
 
   eval:
     name: Evaluate cache
