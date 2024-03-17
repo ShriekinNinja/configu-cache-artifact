@@ -49,6 +49,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Install configu CLI and update to a specific version
+        run: |
+          curl https://cli.configu.com/install.sh | sh
+          configu update --version 0.16.0-next.8
+
       - name: Download cache
         uses: actions/download-artifact@v4
         with:
