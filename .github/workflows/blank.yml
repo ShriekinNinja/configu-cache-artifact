@@ -35,8 +35,10 @@ jobs:
           curl https://cli.configu.com/install.sh | sh
           configu update --version 0.16.0-next.8
 
-      - name: upsert and eval
-        run: |
-          configu run --script upsert
-          configu run --script eval
+      - name: upsert
+        run: configu run --script upsert
+
+      - name: eval
+        run: configu run --script eval
+
 
